@@ -7,11 +7,22 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@v0.157.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@v0.157.0/examples/jsm/"
+          }
+        }
+      </script>
+
     
 </head>
 <body>
 
     <script type="module" src="script.js"></script>
+
+    <canvas id="c"></canvas>
 
     <div class="page-container" id="splash-page">
             <img id="dailybrew-splash-logo" src="dailybrew-logo.svg" alt="dailybrew-logo">
@@ -204,7 +215,7 @@
     </div>
 
 
-
+    
 
 </body>
 </html>
