@@ -7,8 +7,23 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
   }
+
+html, body {
+    overflow: hidden;
+}
+
 body {
     margin: 0;
+}
+
+.main {
+    height: 100dvh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.main .scroll-section {
+    scroll-snap-align: start;
 }
 
 canvas {
@@ -26,9 +41,20 @@ canvas {
     
 }
 
+/* TESTING GROUND */
+#scroll-button {
+    position: fixed;
+
+}
+
 /* FONTS */
 h2 { 
     font-family: 'Signika Negative', sans-serif;
+}
+
+.large-category {
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 4rem;
 }
 
 .menu-type {
@@ -46,6 +72,10 @@ h2 {
     font-size: small;
 }
 
+.introduction{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 
 /* LAYOUT */
 .page-container#splash-page {
@@ -61,6 +91,13 @@ h2 {
 
 #dailybrew-splash-logo {
     width: 40%;
+    max-width: 40rem;
+    min-width: 20rem;
+}
+
+
+.page-container{
+    padding: 0 2rem 0 2rem;
 }
 
 .page-container#menu-page {
@@ -68,9 +105,51 @@ h2 {
     justify-content: center;
 }
 
+.page-container#introduction-page{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.page-container#photo-gallery-page{
+    display: flex;
+    justify-content: center;
+
+}
+
+.introduction-container{
+    padding: 0 2rem 0 2rem;
+    max-width: 30rem;
+}
+
+.photo-gallery-container{
+    flex-basis: 40rem;
+    columns: 14rem;
+    gap: 2rem;
+
+    margin-top: 5rem;
+}
+
+.photo{
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+
+    border: 2px solid #333;
+    border-radius: 1.5rem;
+    padding: 0.7rem;
+}
+
 .menu-type {
     text-align: center;
     margin-top: 5rem;
+}
+
+.large-category{
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 3rem;
+    /* margin-top: 10rem; */
 }
 
 .menu-container {
@@ -83,7 +162,7 @@ h2 {
 }
 
 .menu-category {
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 0 2rem 0;
 }
 
 .menu-category h2 {
@@ -101,4 +180,8 @@ h2 {
 
 #jambon-description {
     margin: -1rem 0 0.5rem 0;
+}
+
+.introduction{
+    text-align: center;
 }
