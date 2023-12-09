@@ -1,4 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+/* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    .menu-item{
+        width: 80%;
+    }
+ }
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (min-width: 600px) {
+    .menu-item{
+        width: 60%;
+    }
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    .menu-item{
+        width: 40%;
+    }
+ }
+ 
+ /* Large devices (laptops/desktops, 992px and up) */
+ @media only screen and (min-width: 992px) {
+    .menu-item{
+        width: 30%;
+    }
+ }
+ 
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ @media only screen and (min-width: 1200px) {
+    .menu-item{
+        width: 28%;
+    }
+ } 
+
+ @media only screen and (min-width: 1600px) {
+    .menu-item{
+        width: 20%;
+    }
+ } 
 
 
 html {
@@ -9,21 +49,12 @@ html {
   }
 
 html, body {
-    overflow: hidden;
+    /* overflow: hidden; */
+    
 }
 
 body {
     margin: 0;
-}
-
-.main {
-    height: 100dvh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-}
-
-.main .scroll-section {
-    scroll-snap-align: start;
 }
 
 canvas {
@@ -41,147 +72,242 @@ canvas {
     
 }
 
-/* TESTING GROUND */
-#scroll-button {
+.header {
+    width: 100dvw;
+
+    display: flex;
+    justify-content: center;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100dvw;
+    max-width: 60rem;
+
     position: fixed;
 
+    padding: 0.5rem;
+
+    font-size: 1rem;
+    font-weight: 700; 
+    font-family: 'Signika Negative';
+
+    z-index: 1000;
 }
 
-/* FONTS */
-h2 { 
-    font-family: 'Signika Negative', sans-serif;
+.header-link {
+    text-decoration: none;
+    color: #333;
 }
 
-.large-category {
-    font-family: 'Signika Negative', sans-serif;
-    font-size: 4rem;
-}
-
-.menu-type {
-    font-family: 'Signika Negative', sans-serif;
-    font-size: 2.3rem;
-}
-
-.menu-name p, .menu-price p {
-    font-family: 'Noto Sans KR', sans-serif;;
-    font-weight: 500;
-}
-
-.menu-description {
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: small;
-}
-
-.introduction{
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-
-/* LAYOUT */
-.page-container#splash-page {
+.splash-page {
     width: 100dvw;
     height: 100dvh;
 
     display: flex;
-    align-items: center;
     justify-content: center;
-
-    /* border: 1px solid; */
+    align-content: center;
 }
 
-#dailybrew-splash-logo {
-    width: 40%;
-    max-width: 40rem;
-    min-width: 20rem;
-}
-
-
-.page-container{
-    padding: 0 2rem 0 2rem;
-}
-
-.page-container#menu-page {
-    display: flex;
-    justify-content: center;
-}
-
-.page-container#introduction-page{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-}
-
-.page-container#photo-gallery-page{
-    display: flex;
-    justify-content: center;
-
-}
-
-.introduction-container{
-    padding: 0 2rem 0 2rem;
+.splash-logo {
+    width: 80%;
     max-width: 30rem;
 }
 
-.photo-gallery-container{
-    flex-basis: 40rem;
-    columns: 14rem;
-    gap: 2rem;
+#page-1 {
+    width: 100dvw;
+    height: 100dvh;
 
-    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: center;
+
+    padding: 1rem;
 }
 
-.photo{
-    max-width: 100%;
-    margin: 0 0 2rem 0;
+#page-2 {
+    width: 100dvw;
+    height: 100dvh;
 
-    border: 2px solid #333;
-    border-radius: 1.5rem;
-    padding: 0.7rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
 }
 
-.menu-type {
+.page-heading {
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: 700;
+
+    width: 100%;
+
     text-align: center;
-    margin-top: 5rem;
+    font-size: 3rem;
 }
 
-.large-category{
+.page-description {
+    font-family: 'Noto Sans KR';
+
+    width: clamp(40rem, 40rem, 100%);
+}
+
+#page-description-text {
+    width: clamp(30rem, 30rem, 100%);
+}
+
+
+
+
+.menu-page {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-title {
+    font-family: 'Signika Negative';
     text-align: center;
-    font-size: 4rem;
-    padding-top: 3rem;
-    /* margin-top: 10rem; */
+    font-size: 3rem;
 }
 
-.menu-container {
-    flex-basis: 50rem;
-    columns: 18rem;
-}
+.menu-item-container {
+    display: flex;
+    gap: 1.5rem;
+    padding-left: 1.7rem;
 
-.menu-category p {
-    margin: 0;
-}
+    /* justify-content: center; */
 
-.menu-category {
-    padding: 0 0 2rem 0;
-}
+    height: 70%;
 
-.menu-category h2 {
-    margin: 0 0 1rem 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+
+    /* scroll-behavior: smooth; */
 }
 
 .menu-item {
+    flex-shrink: 0;
+    height: 100%;
+    
+    border: 2px solid #333;
+    border-style: dashed;
+    border-radius: 1.5rem;
+
+    padding: 0.5rem;
+
+    scroll-snap-align: center;
+}
+
+.menu-item-inner {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: antiquewhite;
+
+    border: #333 2px solid;
+    border-radius: 1rem;
+
+    padding: 1rem;
+
+}
+.menu-image-container {
+    flex-basis: 65%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
 }
 
-.menu-description {
-    padding: 0.2rem 0 1rem 0;
+.dessert-image {
+    width: 170%;
+    height: auto;
+
+    transform: translateX(-20%);
 }
 
-#jambon-description {
-    margin: -1rem 0 0.5rem 0;
+.menu-item-text {
+    padding: 0 1rem 0 1rem;
+    flex-basis: 35%;
 }
 
-.introduction{
+.menu-item-name, .menu-item-price, .menu-item-description {
+    font-family: 'Noto Sans KR';
     text-align: center;
+
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.menu-item-price {
+    font-size: large;
+}
+
+.menu-item-description {
+    font-size: large;
+}
+
+#image-page {
+    width: 100dvw;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.image-wrapper {
+    border: 2px solid #333;
+    border-style: dashed;
+    border-radius: 1.5rem;
+
+    padding: 0.5rem;
+    margin: 0 0 -2.5rem 0;
+}
+
+.interior-image {
+    max-width: 100%;
+    max-height: 70dvh;
+    /* width: max-content; */
+
+    /* margin: -1rem 0 -1rem 0; */
+
+    border: #333 2px solid;
+    border-radius: 1rem;
+}
+
+#image-01 {
+    transform: translateX(-15dvw);
+}
+#image-02 {
+    transform: translateX(10dvw);
+}
+#image-03 {
+    transform: translateX(-10dvw);
+}
+#image-04 {
+    transform: translateX(-5dvw);
+}
+#image-05 {
+    transform: translateX(13dvw);
+}
+#image-06 {
+    transform: translateX(-5dvw);
 }
