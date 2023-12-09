@@ -115,7 +115,7 @@ z-position: 0
 */
 
 const bouncingMugs = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 5; i++) {
 	bouncingMugs.push(new bouncingObject());
 }
 
@@ -131,8 +131,9 @@ function getRandomXYVector(length){
 	return new THREE.Vector3(x, y, 0);
 }
 
-const MUG_SPAWN_X = 8;
-const MUG_SPAWN_Y = 5;
+const MUG_SPAWN_X = window.innerWidth * 0.004;
+const MUG_SPAWN_Y = window.innerHeight *0.004;
+const MUG_VELOCITY = 0.005;
 
 bouncingMugs[0].material.color = new THREE.Color(0xb6e2d3);
 bouncingMugs[0].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
@@ -140,15 +141,15 @@ bouncingMugs[0].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1)
 bouncingMugs[0].mesh.position.z = 0;
 bouncingMugs[0].velocity = getRandomXYVector(0.005);
 bouncingMugs[0].scale = 0.2;
-bouncingMugs[0].xRotation = 0.01;
-bouncingMugs[0].yRotation = 0.01;
+bouncingMugs[0].xRotation = 0.005;
+bouncingMugs[0].yRotation = 0.001;
 
 bouncingMugs[1].material.color = new THREE.Color(0xef7c8e);
-bouncingMugs[1].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
+bouncingMugs[1].mesh.position.x = getRandomNumber(MUG_SPAWN_X + 10, MUG_SPAWN_X * -1 - 10);
 bouncingMugs[1].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
-bouncingMugs[1].mesh.position.z = -20;
+bouncingMugs[1].mesh.position.z = -25;
 bouncingMugs[1].velocity = getRandomXYVector(0.005);
-bouncingMugs[1].scale = 0.5;
+bouncingMugs[1].scale = 0.6;
 bouncingMugs[1].xRotation = 0.003;
 bouncingMugs[1].yRotation = 0.002;
 
@@ -157,9 +158,27 @@ bouncingMugs[2].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1)
 bouncingMugs[2].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
 bouncingMugs[2].mesh.position.z = -10;
 bouncingMugs[2].velocity = getRandomXYVector(0.005);
-bouncingMugs[2].scale = 0.2;
+bouncingMugs[2].scale = 0.25;
 bouncingMugs[2].xRotation = 0.0025;
 bouncingMugs[2].yRotation = 0.01;
+
+bouncingMugs[3].material.color = new THREE.Color(0xD8A7B1);
+bouncingMugs[3].mesh.position.x = getRandomNumber(MUG_SPAWN_X + 5, MUG_SPAWN_X * -1 - 5);
+bouncingMugs[3].mesh.position.y = getRandomNumber(MUG_SPAWN_Y - 20, MUG_SPAWN_Y * -1 - 20);
+bouncingMugs[3].mesh.position.z = -50;
+bouncingMugs[3].velocity = getRandomXYVector(0.005);
+bouncingMugs[3].scale = 0.8;
+bouncingMugs[3].xRotation = 0.00025;
+bouncingMugs[3].yRotation = 0.0001;
+
+bouncingMugs[4].material.color = new THREE.Color(0xf89880);
+bouncingMugs[4].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
+bouncingMugs[4].mesh.position.y = getRandomNumber(MUG_SPAWN_Y - 15, MUG_SPAWN_Y * -1 - 15);
+bouncingMugs[4].mesh.position.z = 0;
+bouncingMugs[4].velocity = getRandomXYVector(0.005);
+bouncingMugs[4].scale = 0.2;
+bouncingMugs[4].xRotation = 0.00025;
+bouncingMugs[4].yRotation = 0.0001;
 
 
 

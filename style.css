@@ -271,6 +271,8 @@ canvas {
 
     overflow-x: hidden;
     overflow-y: hidden;
+
+    padding: 3rem 0 0 0;
 }
 
 .image-wrapper {
