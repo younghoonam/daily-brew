@@ -73,8 +73,17 @@ class bouncingObject {
 
 	//Animation Methods
 	move() {
-		this.mesh.position.x += this.velocity.x;
-		this.mesh.position.y += this.velocity.y;
+		this.mesh.position.x += this.velocity.x * 0.1;
+		this.mesh.position.y += this.velocity.y * 0.1;
+	}
+
+	rotate(multiplier){
+		this.mesh.rotation.x += this.xRotation * multiplier;
+		this.mesh.rotation.y += this.yRotation * multiplier;
+
+		if(rotationAcceleration >= 0.1){
+			rotationAcceleration -= 0.002;
+		}
 	}
 
 	collisionCheck() {
@@ -115,7 +124,7 @@ z-position: 0
 */
 
 const bouncingMugs = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 6; i++) {
 	bouncingMugs.push(new bouncingObject());
 }
 
@@ -132,31 +141,56 @@ function getRandomXYVector(length){
 }
 
 const MUG_SPAWN_X = window.innerWidth * 0.004;
-const MUG_SPAWN_Y = window.innerHeight *0.004;
+const MUG_SPAWN_Y = window.innerHeight * 0.004;
 const MUG_VELOCITY = 0.005;
 
+const mugSpawnX = [
+	window.innerWidth * 0.004 * 0.3,
+	window.innerWidth * 0.004 * 0.4,
+	window.innerWidth * 0.004 * 0.6
+];
+
+const mugSpawnY = [
+	window.innerHeight * 0.004 * -0.4,
+	window.innerHeight * 0.004 * 0.3,
+	window.innerHeight * 0.004 * 0.8
+];
+
 bouncingMugs[0].material.color = new THREE.Color(0xb6e2d3);
-bouncingMugs[0].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
-bouncingMugs[0].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+// bouncingMugs[0].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
+// bouncingMugs[0].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+bouncingMugs[0].mesh.position.x = mugSpawnX[0];
+bouncingMugs[0].mesh.position.y = mugSpawnY[0];
 bouncingMugs[0].mesh.position.z = 0;
+bouncingMugs[0].mesh.rotation.x = 20;
+bouncingMugs[0].mesh.rotation.y = 120;
 bouncingMugs[0].velocity = getRandomXYVector(0.005);
+//0.2
 bouncingMugs[0].scale = 0.2;
 bouncingMugs[0].xRotation = 0.005;
 bouncingMugs[0].yRotation = 0.001;
 
 bouncingMugs[1].material.color = new THREE.Color(0xef7c8e);
-bouncingMugs[1].mesh.position.x = getRandomNumber(MUG_SPAWN_X + 10, MUG_SPAWN_X * -1 - 10);
-bouncingMugs[1].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+// bouncingMugs[1].mesh.position.x = getRandomNumber(MUG_SPAWN_X + 10, MUG_SPAWN_X * -1 - 10);
+// bouncingMugs[1].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+bouncingMugs[1].mesh.position.x = mugSpawnX[1] - 10;
+bouncingMugs[1].mesh.position.y = mugSpawnY[1];
 bouncingMugs[1].mesh.position.z = -25;
+bouncingMugs[1].mesh.rotation.x = 80;
+bouncingMugs[1].mesh.rotation.y = 10;
 bouncingMugs[1].velocity = getRandomXYVector(0.005);
 bouncingMugs[1].scale = 0.6;
 bouncingMugs[1].xRotation = 0.003;
 bouncingMugs[1].yRotation = 0.002;
 
 bouncingMugs[2].material.color = new THREE.Color(0xf89880);
-bouncingMugs[2].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
-bouncingMugs[2].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+// bouncingMugs[2].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
+// bouncingMugs[2].mesh.position.y = getRandomNumber(MUG_SPAWN_Y, MUG_SPAWN_Y * -1);
+bouncingMugs[2].mesh.position.x = mugSpawnX[2];
+bouncingMugs[2].mesh.position.y = mugSpawnY[2];
 bouncingMugs[2].mesh.position.z = -10;
+bouncingMugs[2].mesh.rotation.x = 180;
+bouncingMugs[2].mesh.rotation.y = 10;
 bouncingMugs[2].velocity = getRandomXYVector(0.005);
 bouncingMugs[2].scale = 0.25;
 bouncingMugs[2].xRotation = 0.0025;
@@ -165,7 +199,7 @@ bouncingMugs[2].yRotation = 0.01;
 bouncingMugs[3].material.color = new THREE.Color(0xD8A7B1);
 bouncingMugs[3].mesh.position.x = getRandomNumber(MUG_SPAWN_X + 5, MUG_SPAWN_X * -1 - 5);
 bouncingMugs[3].mesh.position.y = getRandomNumber(MUG_SPAWN_Y - 20, MUG_SPAWN_Y * -1 - 20);
-bouncingMugs[3].mesh.position.z = -50;
+bouncingMugs[3].mesh.position.z = 50;
 bouncingMugs[3].velocity = getRandomXYVector(0.005);
 bouncingMugs[3].scale = 0.8;
 bouncingMugs[3].xRotation = 0.00025;
@@ -179,6 +213,15 @@ bouncingMugs[4].velocity = getRandomXYVector(0.005);
 bouncingMugs[4].scale = 0.2;
 bouncingMugs[4].xRotation = 0.00025;
 bouncingMugs[4].yRotation = 0.0001;
+
+bouncingMugs[5].material.color = new THREE.Color(0xcccccc);
+bouncingMugs[5].mesh.position.x = getRandomNumber(MUG_SPAWN_X, MUG_SPAWN_X * -1);
+bouncingMugs[5].mesh.position.y = getRandomNumber(MUG_SPAWN_Y + 15, MUG_SPAWN_Y * -1 + 15);
+bouncingMugs[5].mesh.position.z = 50;
+bouncingMugs[5].velocity = getRandomXYVector(0.005);
+bouncingMugs[5].scale = 1;
+bouncingMugs[5].xRotation = getRandomNumber(0.0001,0.001);
+bouncingMugs[5].yRotation = getRandomNumber(0.0001,0.001);
 
 
 
@@ -227,6 +270,8 @@ function onWindowResize() {
 
 // Listen for the window resize event and call the onWindowResize function
 window.addEventListener('resize', onWindowResize, false);
+let lastKnownScrollPosition = window.scrollY;
+let rotationAcceleration = 0.1;
 
 function animate() {
 
@@ -247,9 +292,19 @@ function animate() {
 		}
 
 		//Rotate
-		bouncingMugs[i].mesh.rotation.x += bouncingMugs[i].xRotation;
-		bouncingMugs[i].mesh.rotation.y += bouncingMugs[i].yRotation;
+		bouncingMugs[i].rotate(rotationAcceleration);
 
+	}
+
+	if(lastKnownScrollPosition != window.scrollY){
+		console.log(window.scrollY - lastKnownScrollPosition);
+
+		if(rotationAcceleration < 1){
+			rotationAcceleration += 0.1;
+		}
+
+
+		lastKnownScrollPosition = window.scrollY;
 	}
 
 	camera.position.y = -1 * window.scrollY / 500;
@@ -391,4 +446,23 @@ function getSamePageAnchor (link) {
   scrollToHash(window.location.hash);
   
 
-  
+const images = [];
+images.push(document.querySelector('#image-01'));
+images.push(document.querySelector('#image-02'));
+images.push(document.querySelector('#image-03'));
+images.push(document.querySelector('#image-04'));
+images.push(document.querySelector('#image-05'));
+images.push(document.querySelector('#image-06'));
+
+images[0].style.marginTop = "3rem";
+
+let middleImageIndex;
+
+function findCenterImage(){
+
+}
+
+// document.addEventListener("scrollend", (event) => {
+// 	console.log("scroll ended!");
+// 	console.log(document.elementFromPoint( window.innerWidth / 2, window.innerHeight / 2 ));
+//   });

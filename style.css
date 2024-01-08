@@ -104,7 +104,7 @@ canvas {
 
 .splash-page {
     width: 100dvw;
-    height: 100dvh;
+    height: 100vh;
 
     display: flex;
     justify-content: center;
@@ -118,7 +118,7 @@ canvas {
 
 #page-1 {
     width: 100dvw;
-    height: 100dvh;
+    height: 100vh;
 
     display: flex;
     flex-wrap: wrap;
@@ -126,14 +126,14 @@ canvas {
     justify-content: center;
     align-content: center;
 
-    padding: 1rem;
+    padding: 3rem;
 }
 
 #page-2 {
     width: 100dvw;
-    height: 100dvh;
+    height: 100vh;
 
-    padding: 1rem;
+    padding: 3rem;
 
     display: flex;
     flex-direction: column;
@@ -142,8 +142,8 @@ canvas {
 }
 
 .page-heading {
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 800;
 
     width: 100%;
 
@@ -166,7 +166,7 @@ canvas {
 
 .menu-page {
     width: 100dvw;
-    height: 100dvh;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
@@ -218,7 +218,7 @@ canvas {
 
     background-color: antiquewhite;
 
-    border: #333 2px solid;
+    border: rgb(21, 21, 21) 2px solid;
     border-radius: 1rem;
 
     padding: 1rem;
@@ -276,17 +276,19 @@ canvas {
 }
 
 .image-wrapper {
-    border: 2px solid #333;
+    /* border: 2px solid #333;
     border-style: dashed;
-    border-radius: 1.5rem;
+    border-radius: 1.5rem; */
 
-    padding: 0.5rem;
+    padding: 1rem;
     margin: 0 0 -2.5rem 0;
+
+    display: flex;
 }
 
 .interior-image {
     max-width: 100%;
-    max-height: 70dvh;
+    max-height: 70vh;
     /* width: max-content; */
 
     /* margin: -1rem 0 -1rem 0; */
@@ -295,21 +297,37 @@ canvas {
     border-radius: 1rem;
 }
 
-#image-01 {
-    transform: translateX(-15dvw);
+
+#image-spacer-01 {
+    width: 25dvw;
+    height: auto;
 }
-#image-02 {
-    transform: translateX(10dvw);
+
+#image-spacer-02 {
+    width: 15dvw;
+    height: auto;
 }
+
+#image-spacer-03 {
+    width: 25dvw;
+    height: auto;
+}
+
+#image-spacer-04 {
+    width: 25dvw;
+    height: auto;
+}
+
+#image-spacer-05 {
+    width: 25dvw;
+    height: auto;
+}
+
+#image-spacer-06 {
+    width: 5dvw;
+    height: auto;
+}
+
 #image-03 {
-    transform: translateX(-10dvw);
-}
-#image-04 {
-    transform: translateX(-5dvw);
-}
-#image-05 {
-    transform: translateX(13dvw);
-}
-#image-06 {
-    transform: translateX(-5dvw);
+    /* margin-top: 3rem; */
 }
